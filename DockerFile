@@ -1,0 +1,10 @@
+FROM ubuntu
+LABEL version="1.0.0"
+#LABEL parsedmarc_version="6.0.1"
+RUN mkdir -p /opt
+RUN apt-get update -y && apt-get install -y python3-pip
+RUN pip3 install pip
+RUN pip3 install parsedmarc
+VOLUME ["/parsedmarc"]
+COPY parsedmarc.ini /parsedmarc/parsedmarc.ini 
+CMD ["parsedmarc","-c","/parsedmarc/parsedmarc.ini"]

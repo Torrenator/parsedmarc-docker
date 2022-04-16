@@ -1,0 +1,10 @@
+version: '3.6'
+services:
+  davmail:
+    image: parsedmarc:latest
+    container_name: parsedmarc
+    volumes:
+      - parsedmarc-config:/parsedmarc
+
+volumes:
+  parsedmarc-config:
